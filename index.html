@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+<title>CIERRES</title>
+<link rel="icon" href="assets/img/iconoc.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel='stylesheet' href='assets/css/bootstrap.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='assets/css/animate.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='style.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C700italic%2C300%2C400%2C700%2C800%7CMontserrat%3A300italic%2C400italic%2C700italic%2C300%2C400%2C700%7CDosis%3A400%2C700&#038;ver=4.5' type='text/css' media='all'/>
+<link rel='stylesheet' href='icons/elegantline/style.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='assets/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' href='assets/css/flexslider.css' type='text/css' media='all'/>
+</head>
+<body class="frontpage">
+<div class="page-loader">
+	<img src="assets/img/loader.gif" alt="loader">
+</div>
+
+<script type="text/javascript">
+function habilitar(obj) {
+  var hab;
+  frm=obj.form;
+  num=obj.selectedIndex;
+  if ((num>=3 && num<15) || (num>=18 && num<=19)) hab=true;
+  else if (num==2) hab=false;
+  frm.subtipo.disabled=hab;
+  frm.equipos.disabled=hab;
+}
+
+function habilitar2(obj) {
+  var hab;
+  frm=obj.form;
+  num=obj.selectedIndex;
+  if ((num>=1 && num<13)) hab=true;
+  else if (num==2) hab=false;  
+  frm.equipos.disabled=hab;
+}
+
+function validarodr(){
+	var tipo = document.getElementById("tipo").value;
+	var subtipo = document.getElementById("subtipo").value;
+	var equipos = document.getElementById("equipos").value;
+
+	var n = [
+    ["Cambio de Caja SP","1 Super Plus HD","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB"],
+    ["Cambio de Caja SP","2 Super Plus HD","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x2 SWM, Cambio_de_divisor_1x2_SWM"],
+    ["Cambio de Caja SP","3 Super Plus HD","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["Cambio de Caja SP","4 Super Plus HD","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["Cambio de Caja SP NE","1 Super Plus HD","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB"],
+    ["Cambio de Caja SP NE","2 Super Plus HD","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x2 SWM, Cambio_de_divisor_1x2_SWM"],
+    ["Cambio de Caja SP NE","3 Super Plus HD","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["Cambio de Caja SP NE","4 Super Plus HD","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["Cambio de Caja SP NE","Instalar Antena NE","","Cambio_de_Antena_Eliptica, Instalacion de Antena Eliptica"],
+    ["De 1 a 2 super plus","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x2 SWM, Cambio_de_divisor_1x2_SWM"],
+    ["De 1 a 3 super plus","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["De 2 a 3 super plus","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["De 1 a 4 super plus","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["De 2 a 4 super plus","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["De 3 a 4 super plus","","","N/A"],
+    ["De 1 a 2 super plus NE","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x2 SWM, Cambio_de_divisor_1x2_SWM, Cambio_de_Antena_Eliptica, Instalacion de Antena Eliptica"],
+    ["De 1 a 3 super plus NE","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM, Cambio_de_Antena_Eliptica, Instalacion de Antena Eliptica"],
+    ["De 2 a 3 super plus NE","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM, Cambio_de_Antena_Eliptica, Instalacion de Antena Eliptica"],
+    ["De 1 a 4 super plus NE","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM, Cambio_de_Antena_Eliptica, Instalacion de Antena Eliptica"],
+    ["De 2 a 4 super plus NE","","","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM, Cambio_de_Antena_Eliptica, Instalacion de Antena Eliptica"],
+    ["De 3 a 4 super plus NE","","","Cambio_de_Antena_Eliptica, Instalacion de Antena Eliptica"],
+    ["Agrega Super Plus HD","Crece 0 a 1 Ext","","Instalacion de divisor 1x2 SWM, Cambio_de_divisor_1x2_SWM"],
+    ["Agrega Super Plus HD","Crece 0 a 2 Ext","","Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["Agrega Super Plus HD","Crece 0 a 3 Ext","","Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["Agrega Super Plus HD","Crece 1 a 2 Ext","","Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["Agrega Super Plus HD","Crece 1 a 3 Ext","","Instalacion de divisor 1x4 SWM, Cambio_de_divisor_1x4_SWM"],
+    ["Agrega Super Plus HD","Crece 2 a 3 Ext","","N/A"],
+    ["Cambio de Antena","Instalar Antena NE","","Cambio_de_Antena_Eliptica, Instalacion de Antena Eliptica"],
+    ["Cambio de Antena","PAQUETE (SKY HD GOLD, SKY HD PLATINUM, SKY HD FOX+, SKY HD HBO MAX, SKY HD BLACK)","1","Cambio_de_LNB_Eliptico_Sencillo, Instalacion de LNB Eliptico Sencillo"],
+    ["Cambio de Antena","PAQUETE (SKY HD GOLD, SKY HD PLATINUM, SKY HD FOX+, SKY HD HBO MAX, SKY HD BLACK)","2","Cambio_LNB_All_In_One, Instalacion LNB All In One"],
+    ["Cambio de Antena","PAQUETE (SKY HD GOLD, SKY HD PLATINUM, SKY HD FOX+, SKY HD HBO MAX, SKY HD BLACK)","3","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Cambio_PAIRING_4X4_4PV_Telesystem, Instalacion de Splitter 1x4 4PV Telesystem"],
+    ["Cambio de Antena","PAQUETE (SKY HD GOLD, SKY HD PLATINUM, SKY HD FOX+, SKY HD HBO MAX, SKY HD BLACK)","4","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Cambio_PAIRING_4X4_4PV_Telesystem, Instalacion de Splitter 1x4 4PV Telesystem"],
+    ["Cambio de Antena","Instalar Antena NE VETV","","Cambio_de_Ant._Eliptica_Azul, Instalacion de Ant. Eliptica Azul"],
+    ["Cambio de Antena","PAQUETE (VETV HD, VETV PLUS HD)","1","Cambio_de_LNB_Eliptico_Sencillo, Instalacion de LNB Eliptico Sencillo"],
+    ["Cambio de Antena","PAQUETE (VETV HD, VETV PLUS HD)","2","Cambio_LNB_All_In_One, Instalacion LNB All In One"],
+    ["Cambio de Caja","Instalar Antena NE","","Cambio_de_Antena_Eliptica, Instalacion de Antena Eliptica"],
+    ["Cambio de Caja","Reemplaza 1 HD","1","Cambio_de_LNB_Eliptico_Sencillo, Instalacion de LNB Eliptico Sencillo"],
+    ["Cambio de Caja","Reemplaza 1 HD","2","Cambio_LNB_All_In_One, Instalacion LNB All In One, Instalacion de Divisor 1 a 2 SWM, Cambio de Divisor 1 a 2 SWM"],
+    ["Cambio de Caja","Reemplaza 1 HD","3","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de Divisor 1 a 4 SWM, Cambio de Divisor 1 a 4 SWM"],
+    ["Cambio de Caja","Reemplaza 1 HD","4","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de Divisor 1 a 4 SWM, Cambio de Divisor 1 a 4 SWM"],
+    ["Cambio de Caja","Reemplaza 2 HD","2","Cambio_LNB_All_In_One, Instalacion LNB All In One, Instalacion de Divisor 1 a 2 SWM, Cambio de Divisor 1 a 2 SWM"],
+    ["Cambio de Caja","Reemplaza 2 HD","3","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de Divisor 1 a 4 SWM, Cambio de Divisor 1 a 4 SWM"],
+    ["Cambio de Caja","Reemplaza 2 HD","4","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de Divisor 1 a 4 SWM, Cambio de Divisor 1 a 4 SWM"],
+    ["Cambio de Caja","Reemplaza 3 HD","3","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de Divisor 1 a 4 SWM, Cambio de Divisor 1 a 4 SWM"],
+    ["Cambio de Caja","Reemplaza 4 HD","4","Instalacion Stacker Eliptico LNB, Cambio_Stacker_Eliptico_LNB, Instalacion de Divisor 1 a 4 SWM, Cambio de Divisor 1 a 4 SWM"],
+    ["Cambio de Caja","Instalar Antena NE VETV","","Cambio_de_Ant._Eliptica_Azul, Instalacion de Ant. Eliptica Azul"],
+    ["Cambio de Domicilio","","","Realizado, Monstaje de Kit"],
+    ["Cambio de Domicilio VETV","","","Realizado, Monstaje de Kit"]
+    ]
+
+    var val=0;
+    var val2=0;
+    for(var i=0; i<48; i++){
+    	if (tipo==n[i][0]) {
+    		if (subtipo==n[i][1]) {
+    			val++;    			
+    			if (equipos==n[i][2]) {
+    				val2++;
+    			}
+    		}
+
+    	}    	
+
+    }
+    if (val==0 || val2==0) {
+    		alert("ERROR, INGRESAR CORRECTAMENTE LOS DATOS DEL SERVICIO!!!")
+    }
+
+	for(var i=0; i<48; i++){
+    	if (subtipo=='') {
+	        if (n[i][0]==tipo) {
+            	//console.log(n[i][3]);
+            	alert('CIERRE CORRECTO: \n'+n[i][3]);
+        	}    
+    	}else{
+    	    if (equipos=='') {
+	            if (n[i][0]==tipo && n[i][1]==subtipo) {
+            	    //console.log(n[i][3]);
+            	    alert('CIERRE CORRECTO: \n'+n[i][3]);
+        	    }
+        	}else{
+    	        if (n[i][0]==tipo && n[i][1]==subtipo && n[i][2]==equipos) {
+	                //console.log(n[i][3]);
+	                alert('CIERRE CORRECTO: \n'+n[i][3]);
+            	}
+        	}
+    	}
+    
+    
+	}
+}
+</script>
+
+<!-- Header
+================================================== -->
+<header id="header">
+<div id="mega-menu" class="header header2 header-sticky primary-menu icons-no default-skin zoomIn align-right">
+	<nav class="navbar navbar-default redq">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+			<span class="sr-only"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.html">
+			<img src="assets/img/logogittsa.png" alt="logo">
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar">
+			<a class="mobile-menu-close"><i class="fa fa-close"></i></a>
+			<div class="menu-top-menu-container">
+				<ul id="menu-top-menu" class="nav navbar-nav nav-list">
+					<li><a href="#home">Inicio</a></li>					
+					<li><a href="#requi">Descargas</a></li>									
+					<li><a href="#contact">Contacto</a></li>					
+				</ul>
+			</div>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container -->
+	</nav>
+</div>
+</header>	
+
+<!-- INTRO
+================================================== -->
+<section id="home" style="padding:160px 0;background-image: url(https://images.unsplash.com/photo-1610457642191-05328cdf34ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80); background-position: center; background-repeat: no-repeat;background-size: cover;background-attachment:fixed;">
+	<div class="container">
+		<div class="textwidget">
+			<h1 class="toptitle">CIERRE DE SERVICIOS<br/>VALIDA ANTES DE CERRAR <br/><br/>
+			</h1>								
+			<div class="contactstyle topform" >										
+				<form>
+					<div class="form">
+						Tipo de Servicio
+						<select name="tipo" id="tipo" onchange="habilitar(this)">
+							<option></option>
+							<option>Cambio de Caja SP</option>
+							<option>Cambio de Caja SP NE</option>
+							<option>De 1 a 2 super plus</option>
+							<option>De 1 a 3 super plus</option>
+							<option>De 2 a 3 super plus</option>
+							<option>De 1 a 4 super plus</option>
+							<option>De 2 a 4 super plus</option>
+							<option>De 3 a 4 super plus</option>
+							<option>De 1 a 2 super plus NE</option>
+							<option>De 1 a 3 super plus NE</option>
+							<option>De 2 a 3 super plus NE</option>
+							<option>De 1 a 4 super plus NE</option>
+							<option>De 2 a 4 super plus NE</option>
+							<option>De 3 a 4 super plus NE</option>
+							<option>Agrega Super Plus HD</option>
+							<option>Cambio de Antena</option>
+							<option>Cambio de Caja</option>
+							<option>Cambio de Domicilio</option>
+							<option>Cambio de Domicilio VETV</option>
+						</select>
+						<br>
+						Subtipo
+						<select name="subtipo" id="subtipo" onchange="habilitar2(this)">
+							<option></option>
+							<option>1 Super Plus HD</option>
+							<option>2 Super Plus HD</option>
+							<option>3 Super Plus HD</option>
+							<option>4 Super Plus HD</option>
+							<option>Crece 0 a 1 Ext</option>
+							<option>Crece 0 a 2 Ext</option>
+							<option>Crece 0 a 3 Ext</option>
+							<option>Crece 1 a 2 Ext</option>
+							<option>Crece 1 a 3 Ext</option>
+							<option>Crece 2 a 3 Ext</option>
+							<option>Instalar Antena NE</option>
+							<option>Instalar Antena NE VETV</option>
+							<option>PAQUETE (SKY HD GOLD, SKY HD PLATINUM, SKY HD FOX+, SKY HD HBO MAX, SKY HD BLACK)</option>
+							<option>PAQUETE (VETV HD, VETV PLUS HD)</option>
+							<option>Reemplaza 1 HD</option>
+							<option>Reemplaza 2 HD</option>
+							<option>Reemplaza 3 HD</option>
+							<option>Reemplaza 4 HD</option>
+						</select>
+						<br>
+						Numero de Equipos
+						<select name="equipos" id="equipos">
+							<option></option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+						</select>
+						<br>
+						<center>
+						<button type="submit" onclick="validarodr()" class="clearfix btn" style="background: #222; color: #eee;" >VALIDAR</button>
+						</center>
+					<!--	<input type="submit" id="submit" class="clearfix btn" value="VALIDAR">
+					-->
+					</div>
+				</form>
+				<!--
+				<div class="done">
+					<div class="alert alert-success">
+						<button type="button" class="close" data-dismiss="alert">VALIDAR</button>
+						
+					</div>
+				</div>
+			-->
+			</div>								
+		</div>
+		</div>
+</section>
+
+
+<!-- SERVICES
+================================================== -->		
+<section id="requi" class="services margintop60">
+	<div class="container">
+		<div class="sow-headline">
+			<h1>DESCARGAS</h1>
+			<div class="decoration">
+				<div class="decoration-inside">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<center>
+				<h3>MATRIZ PDF</h3>
+				 
+				<h3><a download="matriz-cierre" href="assets/matriz.pdf" ><img src="assets/img/pdf.png"></a></h3>
+				<br>	
+				</center>			 				
+				 
+			</div>
+			<div class="col-md-6">
+				<center>
+				<h3>MATRIZ EXCEL</h3>
+				
+				<h3><a download="matriz-cierre" href="assets/matriz.xlsx" ><img src="assets/img/xlsx.png"></a></h3>
+				<br>
+				</center>
+				 			
+			</div>
+		</div>
+	</div>
+</section>
+	
+		
+<!-- CONTACT
+================================================== -->
+<section id="contact" class="margintop60 nopadding" style="background:#292929;">
+		<div class="col-md-6 whitetext" style="padding: 10px;">
+			<div class="textwidget">
+				<div class="bookarea">
+					CONTACTO<br>
+					<span class="bordered">servicios@gittsa.com </span><br>
+					<span class="call">Teléfono (33) 1349 64 91</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="clearfix"></div>
+</section>
+	
+<!-- FOOTER
+================================================== -->
+<footer id="footer" class="footer2">
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<small>
+					<a href="https://gittsa.com/">
+							  GITTSA TELECOM
+							</a>
+					</small>
+				</div>
+				<div class="col-md-6 text-right">
+					<div class="footer-menu">
+						<ul id="menu-footer-links" class="menu">
+							<li><a href="#"> Inicio</a></li>							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- SCRIPTS
+================================================== -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="contact/topvalidate.js"></script>
+<script src="contact/bottomvalidate.js"></script>
+
+</body>
+</html>
